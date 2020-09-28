@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Review.css'
 import comment from './comment.svg'
 import like from './like.svg'
-import face from './face.jpeg'
 import emptyStar from './emptyStar.svg'
 import fullStar from './fullStar.svg'
 import halfStar from './halfStar.svg'
-
-function Stars(x) {
-  return (
-    <div className="Stars">
-      
-    </div>
-  )
-}
 
 function Review(props) {
   const [count, setCount] = useState(0)
@@ -21,6 +12,22 @@ function Review(props) {
 
   const likeIt = () => {
     setCount(count + 1)
+  }
+
+  let starRating = []
+  let Rating = props.Rating
+
+  while (Rating >= 1) {
+    starRating.push(1)
+    Rating -= 1
+  }
+
+  if (Rating > 0) {
+    starRating.push(0.5)
+  }
+
+  while (starRating.length < 5) {
+    starRating.push(0)
   }
 
   return (
@@ -37,11 +44,15 @@ function Review(props) {
             <img src={props.UserImg} className='UserFace'></img>
             <div className='UserInf'>
               <div className="Stars">
-                <img className='Star' src={fullStar}></img>
-                <img className='Star' src={fullStar}></img>
-                <img className='Star' src={halfStar}></img>
-                <img className='Star' src={emptyStar}></img>
-                <img className='Star' src={emptyStar}></img>
+                {starRating.map((value) => {
+                  if (value === 1) {
+                    return <img className='Star' src={fullStar}></img>
+                  } else if (value === 0.5) {
+                    return <img className='Star' src={halfStar}></img>
+                  } else {
+                    return <img className='Star' src={emptyStar}></img>
+                  }
+                })}
               </div>
               <p className='UserName'>{props.UserName}</p>
               <p className='Date'>{props.Date}</p>
@@ -65,6 +76,9 @@ function Review(props) {
             </a>
           </div>
         </div>
+      </div>
+      <div className="CommentsCollection">
+        
       </div>
     </div>
   )

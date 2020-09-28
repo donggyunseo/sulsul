@@ -75,11 +75,14 @@
   width: 160px;
 }
 
+.Stars {
+  text-align: right;
+}
+
 .Star {
   float: left;
   height: 15px;
   width: 15px;
-  text-align: right;
 }
 
 .container {
@@ -152,4 +155,12 @@
   float: left;
   width: 18px;
   height: 18px;
+}
+
+.CommentsCollection {
+  display: none;
+}
+
+.CommentsCollection:hover {
+  display: block;
 }
