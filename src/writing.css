@@ -1,0 +1,23 @@
+.writingBox {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 750px;
+  height: 200px;
+  border-style: hidden;
+  background-color: #fafafa;
+  padding: 25px;
+}
+
+.writingText {
+  width: 750px;
+  height: 100px;
+  overflow: scroll;
+}
+
+.writingSubmit {
+  float: right;
+}
+
+.selectBoxes {
+  float: left;
+  width: 200px;
+}

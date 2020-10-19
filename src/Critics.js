@@ -8,7 +8,7 @@ import halfStar from './halfStar.svg'
 
 function Review(props) {
   const [count, setCount] = useState(0)
-  const [coCount, setcoCount] = useState(6)
+  const coCount = useState(6)
 
   const likeIt = () => {
     setCount(count + 1)
